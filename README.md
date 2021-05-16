@@ -86,6 +86,52 @@ function maximumToys(prices, k) {
 ```
 ## String Manipulation
 
+- https://www.hackerrank.com/challenges/ctci-making-anagrams/problem
 
+```js
+function makeAnagram(a, b) {
+    // Write your code here
+    const aArray = a.split('')
+    const bArray = b.split('')
+    const arrays = aArray.length < bArray.length ? {
+      min: aArray,
+      max: bArray
+    } : {
+      min: bArray,
+      max: aArray
+    }
+    
+    for (let i = 0; i < arrays.min.length; i++) {
+        const letter = arrays.min[i]
+        const indexMaxLetter = arrays.max.indexOf(letter)
+        if (indexMaxLetter >= 0) {
+            // Se eliminan las coincidencias
+           arrays.min.splice(i, 1)
+           arrays.max.splice(indexMaxLetter, 1)
+           i-- //retrocedo la posicion que elimine par la siguiente iteración
+        }
+    }
+    // Al eliminar las coincidencias, lo que sobra es lo que no hace parte del anagrama
+        return arrays.min.length + arrays.max.length
+}
+```
+
+- https://www.hackerrank.com/challenges/alternating-characters/problem
+
+```js
+function alternatingCharacters(s) {
+    // Write your code here
+     const str = s.split('')
+     let deletedItem = 0
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[i+1]) {
+            str.splice(i, 1)
+            deletedItem++
+            i--
+        }
+    }
+    return deletedItem
+}
+```
 
 ## Dictionaries and Hashmaps
