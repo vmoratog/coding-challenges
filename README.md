@@ -198,3 +198,32 @@ function twoStrings(s1, s2) {
 }
 
 ```
+
+- https://www.hackerrank.com/challenges/ctci-ransom-note/problem
+
+```js
+function checkMagazine(magazine, note) {
+    // Write your code here
+
+    const dictionaryWords = {}
+    let ans = 'Yes'
+    
+    for(let i= 0; i< magazine.length; i++) {
+        const word = magazine[i]
+        dictionaryWords[word] = dictionaryWords[word] || 0
+        dictionaryWords[word]++
+    }
+    
+    for (let i=0; i < note.length; i++) {
+        const word = note[i]
+        if (dictionaryWords[word]) {
+            dictionaryWords[word]--
+        } else {
+            ans = 'No'
+            break
+        }
+    }
+    console.log(ans)
+}
+
+```
