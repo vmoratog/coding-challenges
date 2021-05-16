@@ -5,7 +5,7 @@ Coding challenges with JavaScript
 ```js
 function hourglassSum(arr) {
     // Write your code here
-    let sums = []
+    const sums = []
     for (let r = 0; r < 4; r++) {
         for (let c = 0; c< 4; c++) {
             sums.push(
@@ -15,5 +15,21 @@ function hourglassSum(arr) {
         }
     }
     return sums.sort((a,b) => b-a)[0]
+}
+```
+
+- https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+```js
+function rotLeft(a, d) {
+    // Write your code here
+    const rotatedArray = new Array(a.length)
+    for ( let i = 0; i<a.length; i++) {
+       const diff = i-d
+       const position = diff < 0? a.length - Math.abs(diff) : diff
+       console.log(i, diff, position)
+       rotatedArray[position] = a[i]
+    }
+    console.log(rotatedArray)
+    return rotatedArray
 }
 ```
