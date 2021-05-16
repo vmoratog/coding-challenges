@@ -170,3 +170,31 @@ function alternatingCharacters(s) {
 ```
 
 ## Dictionaries and Hashmaps
+
+.https://www.hackerrank.com/challenges/two-strings/problem
+
+```js
+function twoStrings(s1, s2) {
+    // Write your code here
+    let ans = 'NO'
+
+    const strings = s1.length < s2.length? {
+        min: s1,
+        max: s2
+    } : {
+        min: s2,
+        max: s1
+    }
+    
+    for (let i = 0; i < strings.min.length; i++) {
+        const letter = strings.min[i]
+        const indexMaxStr = strings.max.indexOf(letter)
+        if (indexMaxStr >= 0) {
+            ans = 'YES'
+            break
+        } 
+    }
+    return ans
+}
+
+```
